@@ -1,0 +1,51 @@
+[gd_scene load_steps=7 format=3 uid="uid://d0nwkapt4b44b"]
+
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_t5oux"]
+[ext_resource type="PackedScene" uid="uid://5ds8hjw06qny" path="res://Scenes/player.tscn" id="2_po7j1"]
+[ext_resource type="Texture2D" uid="uid://car3enb16qgrn" path="res://icon.svg" id="3_egdlw"]
+[ext_resource type="PackedScene" uid="uid://dmvsjwnthbodl" path="res://Scenes/jump_pad.tscn" id="4_hk2g6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5i3qv"]
+size = Vector2(551, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pvujh"]
+size = Vector2(498, 20)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_t5oux")
+
+[node name="Player" parent="." instance=ExtResource("2_po7j1")]
+position = Vector2(240, 129)
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(-156, 208)
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(266, 0)
+scale = Vector2(4.31425, 0.145047)
+texture = ExtResource("3_egdlw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(266, 1)
+shape = SubResource("RectangleShape2D_5i3qv")
+
+[node name="Deathzone" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deathzone"]
+position = Vector2(238, 295)
+shape = SubResource("RectangleShape2D_pvujh")
+
+[node name="StartPosition" type="Marker2D" parent="."]
+position = Vector2(222, 132)
+
+[node name="JumpPad" parent="." instance=ExtResource("4_hk2g6")]
+position = Vector2(0, 200)
+
+[node name="JumpPad2" parent="." instance=ExtResource("4_hk2g6")]
+position = Vector2(69, 199)
+jump_force = 100
+
+[connection signal="body_entered" from="Deathzone" to="." method="_on_deathzone_body_entered"]
