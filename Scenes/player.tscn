@@ -1,6 +1,6 @@
 [gd_scene load_steps=31 format=3 uid="uid://5ds8hjw06qny"]
 
-[ext_resource type="Script" path="res://Scripts/player.gd" id="1_5uaf3"]
+[ext_resource type="Script" uid="uid://b3sgsukyujrg6" path="res://Scripts/player.gd" id="1_5uaf3"]
 [ext_resource type="Texture2D" uid="uid://b445eif85s8x" path="res://Assets/textures/player/Idle (32x32).png" id="1_aj4gn"]
 [ext_resource type="Texture2D" uid="uid://oty56ofyd7qw" path="res://Assets/textures/player/Fall (32x32).png" id="2_gntox"]
 [ext_resource type="Texture2D" uid="uid://cmy74l51qn61o" path="res://Assets/textures/player/Jump (32x32).png" id="4_pnqb1"]
@@ -201,7 +201,7 @@ size = Vector2(15, 26)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(0, -16)
-collision_mask = 6
+collision_mask = 14
 script = ExtResource("1_5uaf3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
