@@ -1,0 +1,67 @@
+[gd_scene load_steps=6 format=3 uid="uid://cqmvp27pmfcv8"]
+
+[ext_resource type="Script" uid="uid://cjih74tmyxvqq" path="res://Scripts/start_menu.gd" id="1_a43kq"]
+[ext_resource type="PackedScene" uid="uid://ba6b55b533odl" path="res://Scenes/bg.tscn" id="1_jgtwh"]
+[ext_resource type="Texture2D" uid="uid://bh2qvv0ahx7k8" path="res://Assets/textures/bg/Brown.png" id="2_m6uer"]
+[ext_resource type="FontFile" uid="uid://dqr0dnufw6sdr" path="res://Assets/fonts/Kenney Pixel Square.ttf" id="4_626he"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8u0lp"]
+font = ExtResource("4_626he")
+font_size = 18
+font_color = Color(0, 0, 0, 1)
+outline_size = 2
+
+[node name="StartMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a43kq")
+
+[node name="BG" parent="." instance=ExtResource("1_jgtwh")]
+bg_texture = ExtResource("2_m6uer")
+
+[node name="Title" type="Label" parent="."]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -81.0
+offset_top = 75.0
+offset_right = 81.0
+offset_bottom = 104.0
+grow_horizontal = 2
+scale = Vector2(0.999078, 0.991628)
+text = "Martian Mike"
+label_settings = SubResource("LabelSettings_8u0lp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -33.0
+offset_top = 2.0
+offset_right = 35.0
+offset_bottom = 58.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_626he")
+text = "START"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_626he")
+theme_override_font_sizes/font_size = 8
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

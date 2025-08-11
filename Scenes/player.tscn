@@ -1,10 +1,12 @@
-[gd_scene load_steps=31 format=3 uid="uid://5ds8hjw06qny"]
+[gd_scene load_steps=33 format=3 uid="uid://5ds8hjw06qny"]
 
 [ext_resource type="Script" uid="uid://b3sgsukyujrg6" path="res://Scripts/player.gd" id="1_5uaf3"]
 [ext_resource type="Texture2D" uid="uid://b445eif85s8x" path="res://Assets/textures/player/Idle (32x32).png" id="1_aj4gn"]
 [ext_resource type="Texture2D" uid="uid://oty56ofyd7qw" path="res://Assets/textures/player/Fall (32x32).png" id="2_gntox"]
 [ext_resource type="Texture2D" uid="uid://cmy74l51qn61o" path="res://Assets/textures/player/Jump (32x32).png" id="4_pnqb1"]
 [ext_resource type="Texture2D" uid="uid://b5jyvh0vx7dq5" path="res://Assets/textures/player/Run (32x32).png" id="5_ipoie"]
+[ext_resource type="AudioStream" uid="uid://dtt7bdyaxked0" path="res://Assets/audio/jump.wav" id="6_3smsa"]
+[ext_resource type="AudioStream" uid="uid://dkgmxwe1awob0" path="res://Assets/audio/hurt.wav" id="7_8erm5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nnjjj"]
 atlas = ExtResource("1_aj4gn")
@@ -216,3 +218,9 @@ shape = SubResource("RectangleShape2D_udmb3")
 [node name="Camera2D" type="Camera2D" parent="."]
 limit_bottom = 217
 limit_smoothed = true
+
+[node name="Jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_3smsa")
+
+[node name="Hurt" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_8erm5")

@@ -11,9 +11,15 @@ config_version=5
 [application]
 
 config/name="MartianMike"
-run/main_scene="res://Scenes/level.tscn"
+run/main_scene="uid://cqmvp27pmfcv8"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+boot_splash/image="uid://cmoix7pg3mn4q"
+config/icon="uid://cmy74l51qn61o"
+boot_splash/minimum_display_time=2500
+
+[autoload]
+
+AudioPlayer="*res://Scenes/audio_player.tscn"
 
 [display]
 
