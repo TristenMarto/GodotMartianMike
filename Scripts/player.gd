@@ -7,11 +7,13 @@ class_name Player
 
 @onready var animated_sprite = get_node("AnimatedSprite2D")
 
+var active = true
 
 func _physics_process(delta: float) -> void:
-	_handle_gravity(delta)
-	_handle_jump()
-	_handle_movement()
+	if active == true:
+		_handle_gravity(delta)
+		_handle_jump()
+		_handle_movement()
 
 func _handle_gravity(_delta: float) -> void:
 	if is_on_floor() == false:
